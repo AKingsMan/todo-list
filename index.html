@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Todo-List</title>
+</head>
+<link rel="stylesheet" type="text/css" href="tl.css">
+<body>
+<div id="vue-todolist" class="todolistDiv">
+<h1>Todo List</h1>
+	<input class="ipt" type="text" v-model="inputVaule" v-on:keyup.enter="add" placeholder="请添加任务" />
+	<button v-on:click="add" class="btn" >添&nbsp;加</button>
+	<ul >
+		<li v-for="item in items" >
+			<div class="liDiv">
+				<input type="checkbox" v-model="item.completed">
+				<label  v-bind:class="{ complete:item.completed }">{{item.text}}</label>
+				<button v-on:click="removeTodo(item)" class="but">x</button>
+			</div>
+		</li>
+	</ul>
+</div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="main.js"></script>
+</html>
+
+
